@@ -1,13 +1,19 @@
-var userChoice = prompt("Do you choose rock, paper or scissors?").toLowerCase();
+var userChoice = validUserChoice();
+console.log("You chose " + userChoice);
 var computerChoice = computerChooses();
-compare(userChoice, computerChoice)
+console.log("Computer chose " + computerChoice)
+var result = compare(userChoice, computerChoice)
+console.log(result)
 
-function validateUserChoice(userChoice) {
+function validUserChoice(userChoice) {
+    userChoice = prompt("Do you choose rock, paper or scissors?").toLowerCase();
+
     if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
         while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
             var userChoice = prompt("Invalid input. Do you choose 'rock', 'paper' or 'scissors'?").toLowerCase();
         }
     }
+    return userChoice;
 };
 
 function computerChooses() {
